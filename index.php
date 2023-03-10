@@ -18,8 +18,11 @@
 		require_once($controllerPath);	
 	}
 
+	$loader = new \Twig\Loader\FilesystemLoader('views');
+	$twig = new \Twig\Environment($loader);
+
 	$myObj = new $controller();
 
-	$myObj->$action();
+	$myObj->$action($twig);
 
 ?>

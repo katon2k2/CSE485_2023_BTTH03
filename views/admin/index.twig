@@ -1,9 +1,7 @@
-<?php
-    require PATCH_ROOT . '/views/layout/header_admin.php';
-?>
+{% extends 'layout/base_admin.twig' %}
+{% block content %}
 
     <main class="container mt-5 mb-5">
-        <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm-3">
                 <div class="card mb-2" style="width: 100%;">
@@ -13,7 +11,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            <?php echo $us->getNumbersUser(); ?>
+                            {{numberUser}}
                         </h5>
                     </div>
                 </div>
@@ -55,11 +53,11 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            <?php echo $as->getNumbersArticle(); ?>
+                            {{numberArticle}}
                         </h5>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-<?php include PATCH_ROOT . '/views/layout/footer_admin.php'; ?>
+{% endblock %}

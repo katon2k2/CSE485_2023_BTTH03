@@ -1,8 +1,8 @@
 <?php
 	require_once(PATCH_ROOT . "/services/UserService.php");
 	class LoginController{
-	    public function index(){
-	        include(PATCH_ROOT . "/views/login/login.php");
+	    public function index($twig){
+			echo $twig->render('login/login.twig', []);
 	    }
 
 	    public function login(){

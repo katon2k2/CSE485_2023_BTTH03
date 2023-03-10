@@ -1,14 +1,11 @@
-<?php
-    require PATCH_ROOT . '/views/layout/header.php';
-?>
-
+{% extends 'layout/base.twig' %}
+{% block content %}
     </header>
     <main class="container mt-5 mb-5">
-        <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="d-flex justify-content-center h-100">
             <div class="card">
                 <div class="card-header">
-                    <h3>Sign In</h3>
+                    <h3>Sign  In</h3>
                     <div class="d-flex justify-content-end social_icon">
                         <span><i class="fab fa-facebook-square"></i></span>
                         <span><i class="fab fa-google-plus-square"></i></span>
@@ -46,4 +43,4 @@
             </div>
         </div>
     </main>
-<?php include PATCH_ROOT . '/views/layout/footer.php'; ?>
+{% endblock %}
