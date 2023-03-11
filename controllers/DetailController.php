@@ -8,7 +8,7 @@
 			$detailService = new DetailService();   
 			$detail = $detailService->__construct();
 			//tương tác với view 
-	        include(PATCH_ROOT_DETAILCONTROLLER . "/views/detail/detail.php");
+	        include(PATCH_ROOT . "/views/detail/detail.php");
 	    }
 	}
 ?>

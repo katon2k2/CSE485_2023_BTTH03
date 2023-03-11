@@ -7,7 +7,7 @@
 			$articleHomeService = new ArticleHomeService();
 			$articlehome = $articleHomeService->getAllArticleHome();
 			//tương tác với view 
-	        include(PATCH_ROOT_HOMECONTROLLER . "/views/home/index.php");
+	        include(PATCH_ROOT . "/views/home/index.php");
 	    }
 	}
 ?>

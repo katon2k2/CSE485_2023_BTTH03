@@ -1,5 +1,6 @@
 <?php
-    require PATCH_ROOT . '/views/layout/header.php';
+
+   
 ?>
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">

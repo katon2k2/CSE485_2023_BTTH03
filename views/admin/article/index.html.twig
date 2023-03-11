@@ -1,7 +1,5 @@
-<?php
-    define("PATCH_ROOT_ADMINARTICLE", dirname(__FILE__, 4));
-    require PATCH_ROOT_ADMINARTICLE . '/views/layout/header_admin.php';
-?>
+{% extends 'layout/base_admin.twig' %}
+{% block content %}
 
     <main class="container mt-5 mb-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
@@ -26,47 +24,46 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        foreach ($arrActicle as $value) { ?>
-
-                            <tr>
-                                <!-- <th scope="row">
-                                    <?php print_r($value['ma_bviet']) ?>
-                                </th> -->
+                       
+                        {# {% for value in arrticle %} #}
+                             {% for key, value in arrticle %}
+                            
+                        <br>
+                        <tr>
+                               
                                 <th scope="row">
-                                    <?php print_r($value['tieude']) ?>
+                                  {{ value.tieude}}
                                 </th> <th scope="row">
-                                    <?php print_r($value['ten_bhat']) ?>
+                                    {{value.ten_bhat}}
                                 </th> <th scope="row">
-                                    <?php print_r($value['ma_tloai']) ?>
+                                    {{value.ma_tloai}}
                                 </th> <th scope="row">
-                                    <?php print_r($value['tomtat']) ?>
+                                    {{value.tomtat}}
                                 </th>
                                 <th scope="row" style="max-width: 350px !important;word-wrap: break-word !important; text-align:center !important;">
-                                    <?php print_r($value['noidung']) ?>
+                                    {{value.noidung}}
                                 </th>
                                 <th scope="row">
-                                    <?php print_r($value['ma_tgia']) ?>
+                                    {{value.ma_tgia}}
                                 </th>
                                 <th scope="row">
-                                    <?php print_r($value['ngayviet']) ?>
+                                    {{value.ngayviet}}
                                 </th>
                                 <th scope="row">
-                                    <?php print_r($value['hinhanh']) ?>
+                                    {{value.hinhanh}}
+                                    {{value.ma_bviet}}
                                 </th>
                                 <td>
-                                    <a href="index.php?controller=article&action=update&id=<?php print_r($value['ma_bviet']) ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="index.php?controller=article&action=update&id={{value.ma_bviet}}"><i class="fa-solid fa-pen-to-square"></i></a>
                                 </td>
                                 <td>
-                                    <a href="index.php?controller=article&action=delete&id=<?php print_r($value['ma_bviet']) ?>"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="index.php?controller=article&action=delete&id='{{value.ma_bviet}}'"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
-                            <?php
-
-                        } ?>
-                    </tbody>
+                            {% endfor %}
+                        </tbody>
                 </table>
             </div>
         </div>
     </main>
-<?php include PATCH_ROOT_ADMINARTICLE . '/views/layout/footer_admin.php'; ?>
+{% endblock %}

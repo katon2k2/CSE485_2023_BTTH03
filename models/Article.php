@@ -1,7 +1,7 @@
 <?php
 class Article
 {
-    private $ma_bviet;
+    private $ma_bviet='';
     private $tieude;
     private $tomtat;
     private $ten_bhat;
@@ -18,7 +18,7 @@ class Article
     */
    public function __construct($ma_bviet,$tieude,$tomtat,$ten_bhat,$ma_tloai,$noidung,$ma_tgia,$ngayviet,$hinhanh)
    {
-    $this->$ma_bviet = $ma_bviet;
+    $this->ma_bviet = $ma_bviet;
     $this->tieude = $tieude;
     $this->tomtat = $tomtat;
     $this->ten_bhat= $ten_bhat;
@@ -34,6 +34,7 @@ class Article
      */ 
     public function getMa_bviet()
     {
+      
         return $this->ma_bviet;
     }
 
@@ -100,4 +101,9 @@ class Article
     {
         return $this->hinhanh;
     }
+
+    /**
+     * Get the value of ma_bviet
+     */ 
+
 }
