@@ -1,15 +1,12 @@
 <?php
+    require_once(PATCH_ROOT . '/configs/PdoConnect.php');
     class DetailService{
         // Chứa các hàm tương tác và xử lý dữ liệu
 
         public function __construct(){
             // Bước 01: Kết nối DB Server
-            try {
-                $conn = new PDO('mysql:host=localhost;dbname=btth01_cse485;port=3306','root','');
-            } catch (PDOException $e) {
-                echo $e->getMessage();
-            }
-
+            $DBconnect = new PdoConnect();
+            $conn = $DBconnect->getConnect();
             // Bước 02: Truy vấn DL
             $post_id = $_GET['id'];
             $sql = "SELECT baiviet.ma_bviet, baiviet.ten_bhat, theloai.ten_tloai, baiviet.tomtat, baiviet.noidung, tacgia.ten_tgia, baiviet.hinhanh
