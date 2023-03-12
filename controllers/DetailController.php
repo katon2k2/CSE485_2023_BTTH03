@@ -9,6 +9,7 @@
 			$detail = $detailService->__construct();
 			$data = $detail;
 			//tương tác với view 
+
 	        echo $twig->render('detail/detail.twig', [
 				'detail' => $data]);
 	    }

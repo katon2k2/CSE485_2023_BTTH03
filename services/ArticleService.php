@@ -9,9 +9,10 @@ class ArticleService
      */
     
     
-    protected $articles ;
+    protected $articles;
     protected $ma_TL=[];
     private $isSucsess;
+    protected $a =[];
     
 
     public function querySQL($sql)
@@ -21,17 +22,31 @@ class ArticleService
         $stmt = $conn->prepare($sql);
         $this->isSucsess=$stmt->execute();
         $this->articles = $stmt->fetchAll();
+        
     }
     
     public function getAllArticles($sql){
         $this->querySQL($sql);
         foreach ($this->articles as  $row) {
-            
+           
             $article = new Article($row['ma_bviet'], $row['tieude'],  $row['tomtat'], $row['ten_bhat'],$row['ma_tloai'], $row['noidung'],$row['ma_tgia'] ,   $row['ngayviet'],$row['hinhanh']);
-            array_push($this->articles,$article);
-            
-        }
-        return $this->articles;
+            // array_push($this->a,$article);
+          
+            array_push($this->a, (object)[
+              'ma_bviet' => $article->getMa_bviet(),
+              'tieude' => $article->getTieude(),
+              'tomtat' => $article->getTomtat(),
+              'ten_bhat' => $article->getTen_bhat(),
+              'ma_tloai' => $article->getMa_tloai(),
+              'noidung' => $article->getNoidung(),
+              'ma_tgia' => $article->getMa_tgia(),
+              'ngayviet' => $article->getNgayviet(),
+              'hinhanh' => $article->getHinhanh(),
+      ]);
+                }
+
+       
+        return $this->a;
     }
     public function process_update()
    {
@@ -44,7 +59,7 @@ class ArticleService
         $txt_tomtat = $_POST['txt_tomtat'];
         $txt_noidung = (!$_POST['txt_noidung'])?"":$_POST['txt_noidung'];
         $option_tacgia = $_POST['option_tacgia'];
-        // $txt_ngayviet = $_POST['txt_ngayviet'];
+     
         
         $img_url = ($_FILES['hinhanh']['full_path'])?$_FILES['hinhanh']['full_path']:"";
       
@@ -65,11 +80,11 @@ class ArticleService
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
        
         $tieude = ($_POST["txt_tieude"]);
-      $tenbaihat = ($_POST["txt_tenbaihat"]);
-      $theloai =($_POST["option_Theloai"]);
+        $tenbaihat = ($_POST["txt_tenbaihat"]);
+        $theloai =($_POST["option_Theloai"]);
       
-      $tomtat = ($_POST["txt_tomtat"]);
-      $noidung = ($_POST["txt_noidung"]);
+        $tomtat = ($_POST["txt_tomtat"]);
+        $noidung = ($_POST["txt_noidung"]);
       $tacgia =($_POST["option_tacgia"]);
       
       

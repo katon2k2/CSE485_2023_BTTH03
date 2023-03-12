@@ -13,6 +13,7 @@
 			echo $twig->render('home/home.twig', [
 				'articlehome' => $data]);
 	        // include(PATCH_ROOT . "/views/home/home.twig");
+
 	    }
 	}
 ?>
